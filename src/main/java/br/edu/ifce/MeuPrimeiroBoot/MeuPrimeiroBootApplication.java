@@ -1,6 +1,6 @@
 package br.edu.ifce.MeuPrimeiroBoot;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,9 +24,11 @@ public class MeuPrimeiroBootApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		Cliente cliente = new Cliente();
-		cliente.setNome("Farísia Alada dos Santos da Paiva Mota");
+		cliente.setNome("Faríseu Alado dos Santos da Paiva Mota Nunes Valente da Silva");
 		cliente.setTelefone("(85) 98763-4875");
-		cliente.setDtNascimento(new Date(1983, 04, 15));
+		
+		LocalDate data = LocalDate.of(1983, 12, 20);
+		cliente.setDataNascimento(data);
 		
 		Endereco endereco = new Endereco();
 		endereco.setLogradouro("Alameda dos Anjos");

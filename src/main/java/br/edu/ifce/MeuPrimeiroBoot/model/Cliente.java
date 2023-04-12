@@ -1,13 +1,14 @@
 package br.edu.ifce.MeuPrimeiroBoot.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -21,20 +22,18 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
 	private Long id;
 	
-	@Column(name = "nomeCliente")
 	private String nome;
 	
-	@Column(name = "telefoneCliente")
 	private String telefone;
 	
-	@Column(name = "dataNascimento")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date dtNascimento;
+	@Column(name = "data_nascimento")
+	@Temporal(TemporalType.DATE)
+	private LocalDate dataNascimento;
 	
 	@Transient
 	private int idade;
 	
-	@Embedded
+	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 
 	public Long getId() {
@@ -61,12 +60,12 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 
-	public Date getDtNascimento() {
-		return dtNascimento;
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
 	}
 
-	public void setDtNascimento(Date dtNascimento) {
-		this.dtNascimento = dtNascimento;
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 
 	public int getIdade() {
