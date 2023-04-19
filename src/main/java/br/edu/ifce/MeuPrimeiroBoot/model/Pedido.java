@@ -2,6 +2,7 @@ package br.edu.ifce.MeuPrimeiroBoot.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +12,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tbl_pedido")
+@Table(name = "pedido")
 public class Pedido {
 
 	@Id
@@ -21,7 +22,7 @@ public class Pedido {
 	@ManyToOne
 	private Cliente cliente;
 	
-	@ManyToMany()
+	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Produto> produtos;
 
 	public Long getId() {
@@ -38,6 +39,14 @@ public class Pedido {
 
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
 	}
 
 }

@@ -38,7 +38,7 @@ public class Cliente {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
 	
-	@OneToMany(mappedBy = "cliente")
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Pedido> pedidos;
 	
 

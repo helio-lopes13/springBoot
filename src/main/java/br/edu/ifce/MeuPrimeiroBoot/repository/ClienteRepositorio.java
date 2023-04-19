@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import br.edu.ifce.MeuPrimeiroBoot.model.Cliente;
 
 @Repository
-public interface ClienteRepositorio extends JpaRepository<Cliente, Long>{
+public interface ClienteRepositorio extends JpaRepository<Cliente, Long> {
 
 }
