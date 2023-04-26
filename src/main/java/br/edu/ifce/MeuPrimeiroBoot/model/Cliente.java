@@ -28,6 +28,8 @@ public class Cliente {
 	
 	private String telefone;
 	
+	private String email;
+	
 	@Column(name = "data_nascimento")
 	@Temporal(TemporalType.DATE)
 	private LocalDate dataNascimento;
@@ -41,7 +43,6 @@ public class Cliente {
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Pedido> pedidos;
 	
-
 	public Long getId() {
 		return id;
 	}
@@ -64,6 +65,14 @@ public class Cliente {
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public LocalDate getDataNascimento() {

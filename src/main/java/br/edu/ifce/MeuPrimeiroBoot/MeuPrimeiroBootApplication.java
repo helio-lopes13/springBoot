@@ -13,20 +13,12 @@ import br.edu.ifce.MeuPrimeiroBoot.model.Endereco;
 import br.edu.ifce.MeuPrimeiroBoot.model.Pedido;
 import br.edu.ifce.MeuPrimeiroBoot.model.Produto;
 import br.edu.ifce.MeuPrimeiroBoot.repository.ClienteRepositorio;
-import br.edu.ifce.MeuPrimeiroBoot.repository.PedidoRepositorio;
-import br.edu.ifce.MeuPrimeiroBoot.repository.ProdutoRepositorio;
 
 @SpringBootApplication
 public class MeuPrimeiroBootApplication implements CommandLineRunner {
 
 	@Autowired
 	private ClienteRepositorio clienteRepositorio;
-
-	@Autowired
-	private ProdutoRepositorio produtoRepositorio;
-
-	@Autowired
-	private PedidoRepositorio pedidoRepositorio;
 
 	public static void main(String[] args) {
 		SpringApplication.run(MeuPrimeiroBootApplication.class, args);
@@ -37,6 +29,7 @@ public class MeuPrimeiroBootApplication implements CommandLineRunner {
 		Cliente cliente = new Cliente();
 		cliente.setNome("Faríseu Alado dos Santos da Paiva Mota Nunes Valente da Silva");
 		cliente.setTelefone("(85) 98763-4875");
+		cliente.setEmail("faris.eu@gmail.com");
 
 		LocalDate data = LocalDate.of(1983, 12, 20);
 		cliente.setDataNascimento(data);
@@ -69,7 +62,7 @@ public class MeuPrimeiroBootApplication implements CommandLineRunner {
 		Pedido pedido2 = new Pedido();
 		pedido2.setCliente(cliente);
 		pedido2.setProdutos(Arrays.asList(produto1, produto3));
-		
+
 		cliente.setPedidos(Arrays.asList(pedido1, pedido2));
 		clienteRepositorio.save(cliente);
 	}
