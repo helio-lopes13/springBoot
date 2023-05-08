@@ -1,7 +1,5 @@
 package br.edu.ifce.MeuPrimeiroBoot.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +19,7 @@ public class ClientesController {
 	private ClienteService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Cliente>> buscarTodos() {
+	public ResponseEntity<?> buscarTodos() {
 		return ResponseEntity.ok(service.buscarTodos());
 	}
 	

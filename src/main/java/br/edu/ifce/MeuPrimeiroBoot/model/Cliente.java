@@ -39,9 +39,9 @@ public class Cliente {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Endereco endereco;
-	
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Pedido> pedidos;
+//	
+//	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+//	private List<Pedido> pedidos;
 	
 	public Long getId() {
 		return id;
@@ -99,11 +99,11 @@ public class Cliente {
 		this.endereco = endereco;
 	}
 
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
+//	public List<Pedido> getPedidos() {
+//		return pedidos;
+//	}
+//
+//	public void setPedidos(List<Pedido> pedidos) {
+//		this.pedidos = pedidos;
+//	}
 }
